@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
 
-@Entity
+@MappedSuperclass
 public abstract class Model implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

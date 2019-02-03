@@ -16,7 +16,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
 public abstract class Model implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

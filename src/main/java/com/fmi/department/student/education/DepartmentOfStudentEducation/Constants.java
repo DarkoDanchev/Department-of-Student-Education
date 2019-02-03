@@ -10,4 +10,6 @@ public class Constants {
 
     public static final String year_regex = "^\\d{4}$";
 
+    public static final String name_regex = "/^[a-z ,.'-]+$/i";
+
 }

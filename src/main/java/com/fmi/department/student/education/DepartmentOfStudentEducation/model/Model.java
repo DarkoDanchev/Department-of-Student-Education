@@ -1,12 +1,22 @@
 package com.fmi.department.student.education.DepartmentOfStudentEducation.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @MappedSuperclass
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
 public abstract class Model implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,19 +24,9 @@ public abstract class Model implements Serializable {
     @Id
     private UUID id;
 
-    public Model(UUID id) {
-        this.id = id;
-    }
+    @NotNull
+    private Timestamp createdAt;
 
-    public Model(){
-        this.id = new UUID(32,32);
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
+    @NotNull
+    private Timestamp modifiedAt;
 }

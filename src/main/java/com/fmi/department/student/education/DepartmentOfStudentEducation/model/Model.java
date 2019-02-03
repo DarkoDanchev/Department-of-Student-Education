@@ -4,27 +4,29 @@ import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
 public abstract class Model implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial",name="id")
-    private Long id;
+    @Id
+    private UUID id;
 
-    public Model(Long id) {
+    public Model(UUID id) {
         this.id = id;
     }
 
     public Model(){
-        this.id = 0L;
+        this.id = new UUID(32,32);
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 }
